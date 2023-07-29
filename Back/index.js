@@ -1,15 +1,15 @@
-import express from "express";
+const express = require("express");
 const app = express();
-import { createServer } from "http";
-import cors from "cors";
-import { Server } from "socket.io";
+const http = require("http");
+const cors = require("cors");
+const { Server } = require("socket.io");
 app.use(cors());
 
-const server = createServer(app);
+const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000","https://yousef-chat-app.onrender.com"],
+    origin: ["http://localhost:3000","https://yousef-chat.com"],
     methods: ["GET", "POST"],
   },
 });
